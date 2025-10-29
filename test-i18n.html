@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест переводов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        .language-test {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .language-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .ru-btn { background: #dc2626; color: white; }
+        .en-btn { background: #2563eb; color: white; }
+        .zh-btn { background: #dc2626; color: white; }
+        .test-content {
+            margin: 20px 0;
+            padding: 20px;
+            background: #444;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌍 Тест мультиязычности Web-Subnetik</h1>
+    
+    <div class="language-test">
+        <h2>Переключение языков:</h2>
+        <div class="language-buttons">
+            <button class="ru-btn" onclick="changeLanguage('ru')">🇷🇺 Русский</button>
+            <button class="en-btn" onclick="changeLanguage('en')">🇺🇸 English</button>
+            <button class="zh-btn" onclick="changeLanguage('zh')">🇨🇳 中文</button>
+        </div>
+    </div>
+
+    <div class="test-content">
+        <h2>Тестовый контент:</h2>
+        <p><strong>Заголовок:</strong> <span id="hero-title">Загрузка...</span></p>
+        <p><strong>Подзаголовок:</strong> <span id="hero-subtitle">Загрузка...</span></p>
+        <p><strong>Кнопка 1:</strong> <span id="hero-discuss">Загрузка...</span></p>
+        <p><strong>Кнопка 2:</strong> <span id="hero-portfolio">Загрузка...</span></p>
+        <p><strong>Навигация:</strong> <span id="nav-home">Загрузка...</span></p>
+        <p><strong>Форма:</strong> <span id="contact-form">Загрузка...</span></p>
+    </div>
+
+    <div class="test-content">
+        <h2>Переводы:</h2>
+        <div id="translations"></div>
+    </div>
+
+    <script>
+        // Имитация переводов
+        const translations = {
+            ru: {
+                'hero.title': 'Разработка веб‑сайтов и приложений под ключ',
+                'hero.subtitle': 'Разрабатываем функциональные и уникальные сайты специально для вашего бизнеса',
+                'hero.discussProject': 'ОБСУДИТЬ ПРОЕКТ',
+                'hero.portfolio': 'ПОРТФОЛИО',
+                'nav.home': 'Главная',
+                'contact.form.submit': 'ОСТАВИТЬ ЗАЯВКУ'
+            },
+            en: {
+                'hero.title': 'Full-Stack Web Development & Applications',
+                'hero.subtitle': 'We develop functional and unique websites specifically for your business',
+                'hero.discussProject': 'DISCUSS PROJECT',
+                'hero.portfolio': 'PORTFOLIO',
+                'nav.home': 'Home',
+                'contact.form.submit': 'SUBMIT APPLICATION'
+            },
+            zh: {
+                'hero.title': '全栈网站开发与应用程序',
+                'hero.subtitle': '我们为您的业务开发功能性和独特的网站',
+                'hero.discussProject': '讨论项目',
+                'hero.portfolio': '作品集',
+                'nav.home': '首页',
+                'contact.form.submit': '提交申请'
+            }
+        };
+
+        let currentLang = 'ru';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            updateContent();
+        }
+
+        function updateContent() {
+            const t = translations[currentLang];
+            
+            document.getElementById('hero-title').textContent = t['hero.title'];
+            document.getElementById('hero-subtitle').textContent = t['hero.subtitle'];
+            document.getElementById('hero-discuss').textContent = t['hero.discussProject'];
+            document.getElementById('hero-portfolio').textContent = t['hero.portfolio'];
+            document.getElementById('nav-home').textContent = t['nav.home'];
+            document.getElementById('contact-form').textContent = t['contact.form.submit'];
+
+            // Показываем все переводы
+            const translationsDiv = document.getElementById('translations');
+            translationsDiv.innerHTML = '';
+            
+            Object.keys(t).forEach(key => {
+                const div = document.createElement('div');
+                div.innerHTML = `<strong>${key}:</strong> ${t[key]}`;
+                translationsDiv.appendChild(div);
+            });
+        }
+
+        // Инициализация
+        updateContent();
+    </script>
+</body>
+</html>

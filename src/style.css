@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  /* Additional padding for contact section when navigating from other pages */
+  #contact {
+    scroll-margin-top: 2rem;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-icorp-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors duration-300;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-black transition-all duration-300;
+  }
+}
