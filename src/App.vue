@@ -25,8 +25,6 @@
       @close="hideToast"
     />
     
-    <!-- Security Overlay -->
-    <SecurityOverlay />
   </div>
 </template>
 
@@ -34,14 +32,12 @@
 import { notification, hideNotification, toast, hideToast } from './composables/useNotifications'
 import NotificationModal from './components/NotificationModal.vue'
 import ToastNotification from './components/ToastNotification.vue'
-import SecurityOverlay from './components/SecurityOverlay.vue'
 
 export default {
   name: 'App',
   components: {
     NotificationModal,
-    ToastNotification,
-    SecurityOverlay
+    ToastNotification
   },
   setup() {
     const handleConfirm = () => {
