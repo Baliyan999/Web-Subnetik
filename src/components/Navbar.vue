@@ -4,13 +4,13 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo слева -->
         <div class="flex-shrink-0">
-          <img 
-            src="/logo.png" 
-            alt="Web-Subnetik Logo" 
-            class="h-8 w-auto sm:h-10 transition-transform duration-200 hover:scale-105 cursor-pointer"
-            @click="goToHome"
-            @error="handleImageError"
-          />
+                 <img 
+                   src="/assets/images/logo/transperent-logo.png" 
+                   alt="Web-Subnetik Logo" 
+                   class="h-8 w-auto sm:h-10 transition-transform duration-200 hover:scale-105 cursor-pointer"
+                   @click="goToHome"
+                   @error="handleImageError"
+                 />
         </div>
         
         <!-- Название по центру -->
