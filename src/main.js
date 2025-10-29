@@ -3,9 +3,11 @@ import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
 import './style.css'
+import './utils/security.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { initGA, trackPageView } from './utils/analytics'
+import SecurityProtection from './utils/security.js'
 
 const app = createApp(App)
 
@@ -15,6 +17,9 @@ app.use(i18n)
 
 // Initialize Google Analytics
 initGA()
+
+// Initialize Security Protection
+new SecurityProtection()
 
 // Track page views on route changes
 router.afterEach((to) => {
